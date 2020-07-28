@@ -1,25 +1,42 @@
-import Head from 'next/head'
-
 export default function Home() {
-  return (
-    <div className="container">
-        <iframe 
-            class="airtable-embed" 
-            src="https://airtable.com/embed/shrkkkgpxxbC8H5Ru?backgroundColor=blue" 
-            frameborder="0" 
-            onmousewheel="" 
-            width="100%" 
-            height="100%" 
+    return (
+        <div 
+            className="container"
             style={{
-                background: 'transparent', 
-                border: '1px solid #ccc',
                 position: 'fixed',
+                bottom: '0',
                 top: '0',
                 left: '0',
                 right: '0',
-                bottom: '0'
+                display: 'flex',
+                flexWrap: 'row-reverse'
             }}
-        />
-    </div>
-  )
+            >
+            <div>
+            <iframe
+                class="airtable-embed"
+                src="https://airtable.com/embed/shrIc9Wxe7GnRs3Hp?backgroundColor=gray&viewControls=off"
+                frameborder="0"
+                onmousewheel=""
+                style={{
+                    width : '100%',
+                    height: '100%'
+                }}
+            />
+            </div>
+            <div>
+            <iframe
+                class="airtable-embed"
+                src="https://airtable.com/embed/shrkkkgpxxbC8H5Ru?backgroundColor=blue"
+                frameborder="0"
+                onmousewheel=""
+                style={{
+                    width: '100%',
+                    height: '100%'
+                }}
+            />
+            </div>
+
+        </div>
+    )
 }
