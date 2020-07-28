@@ -16,10 +16,8 @@ class Home extends Component {
         this.setState({
             stack: (isMobile || isTablet)
         })
-        window.addEventListener("orientationchange", (event) => {
-            const type = event.target.screen.orientation.type
-
-            const isLandscape = type === 'landscape-primary' || type === 'landscape-secondary'
+        window.onresize = () => {
+            const isLandscape = window.screen.width > window.screen.height
 
             if (isLandscape && this.state.stack){
                 this.setState({
@@ -30,7 +28,7 @@ class Home extends Component {
                     stack: true
                 })
             }
-          });
+        }
     }
 
     render(){
