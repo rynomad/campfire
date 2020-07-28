@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { isMobile } from 'react-device-detect'
+import { isMobile, isTablet, withOrientationChange } from 'react-device-detect'
 
 class Home extends Component {
     constructor(){
@@ -8,8 +8,9 @@ class Home extends Component {
     }
 
     componentDidMount(){
+        console.log('orientation', this.props.isPortrait, this.props.isLandscape)
         this.setState({
-            stack: isMobile &&( window.screen.orientation === 'portrait-primary' || window.screen.orientation === 'portrait-secondary')
+            stack: (isMobile || isTablet) && this.props.isPortrait
         })
     }
 
@@ -64,4 +65,4 @@ class Home extends Component {
    
 }
 
-export default Home
+export default withOrientationChange(Home)
