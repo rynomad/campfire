@@ -9,7 +9,7 @@ class Home extends Component {
 
     componentDidMount(){
         this.setState({
-            isMobile
+            stack: isMobile &&( window.screen.orientation === 'portrait-primary' || window.screen.orientation === 'portrait-secondary')
         })
     }
 
