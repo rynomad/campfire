@@ -6,13 +6,13 @@ class Home extends Component {
         super()
         this.state = {}
     }
-    
+
     componentDidMount(){
         console.log('orientation', this.props.isPortrait, this.props.isLandscape)
         this.setState({
-            stack: (isMobile || isTablet)
+            stack: (isMobile || isTablet) && (window.screen.width > window.screen.height)
         })
-        setInterval(() => {
+        setInterval(() => { 
             const isLandscape = window.screen.width > window.screen.height
 
             if (isLandscape && this.state.stack){
@@ -29,6 +29,10 @@ class Home extends Component {
 
     render(){
         return (
+            <>
+            <p>
+                Overlay {JSON.stringify(this.state)} 
+            </p>
             <div 
                 className="container"
                 style={{
@@ -38,7 +42,8 @@ class Home extends Component {
                     left: '0',
                     right: '0',
                     display: 'flex',
-                    flexWrap: 'wrap-reverse'
+                    flexWrap: 'wrap-reverse',
+                    zIndex: -1
                 }}
                 >
                 <div style={{
@@ -73,6 +78,7 @@ class Home extends Component {
                 </div>
     
             </div>
+            </>
         )
     }
    
