@@ -10,34 +10,36 @@ class Home extends Component {
     componentDidMount(){
         console.log('orientation', this.props.isPortrait, this.props.isLandscape)
 
+        setTimeout(() => {
+            const watcher = window.matchMedia('(orientation: landscape)')
 
-        const watcher = window.matchMedia('(orientation: landscape)')
-
-        this.setState({
-            stack: (isMobile || isTablet) && watcher.matches
+            this.setState({
+                stack: (isMobile || isTablet) && watcher.matches
+            })
+    
+            watcher.addListener((w) => {
+                const isLandscape = w.matches
+    
+                if (isLandscape && this.state.stack){
+                    this.setState({
+                        stack: false,
+                    })
+                } else if (!isLandscape && !this.state.stack){
+                    this.setState({
+                        stack: true
+                    })
+                }
+            })
         })
 
-        watcher.addListener((w) => {
-            const isLandscape = w.matches
-
-            if (isLandscape && this.state.stack){
-                this.setState({
-                    stack: false,
-                })
-            } else if (!isLandscape && !this.state.stack){
-                this.setState({
-                    stack: true
-                })
-            }
-        })
     }
 
     render(){
         return (
             <>
-            <p>
+            {/* <p>
                 Overlay {JSON.stringify(this.state)} 
-            </p>
+            </p> */}
             <div 
                 className="container"
                 style={{
