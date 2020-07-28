@@ -7,11 +7,30 @@ class Home extends Component {
         this.state = {}
     }
 
+    isLandscape(){
+
+    }
+
     componentDidMount(){
         console.log('orientation', this.props.isPortrait, this.props.isLandscape)
         this.setState({
-            stack: (isMobile || isTablet) && this.props.isPortrait
+            stack: (isMobile || isTablet)
         })
+        window.addEventListener("orientationchange", (event) => {
+            const type = event.target.screen.orientation.type
+
+            const isLandscape = type === 'landscape-primary' || type === 'landscape-secondary'
+
+            if (isLandscape && this.state.stack){
+                this.setState({
+                    stack: false,
+                })
+            } else if (!isLandscape && !this.state.stack){
+                this.setState({
+                    stack: true
+                })
+            }
+          });
     }
 
     render(){
