@@ -16,7 +16,7 @@ class Home extends Component {
         this.setState({
             stack: (isMobile || isTablet)
         })
-        window.onresize = () => {
+        setInterval(() => {
             const isLandscape = window.screen.width > window.screen.height
 
             if (isLandscape && this.state.stack){
@@ -28,7 +28,7 @@ class Home extends Component {
                     stack: true
                 })
             }
-        }
+        }, 200)
     }
 
     render(){
