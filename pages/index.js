@@ -9,11 +9,16 @@ class Home extends Component {
 
     componentDidMount(){
         console.log('orientation', this.props.isPortrait, this.props.isLandscape)
+
+
+        const watcher = window.matchMedia('(orientation: landscape)')
+
         this.setState({
-            stack: (isMobile || isTablet) && (window.screen.width > window.screen.height)
+            stack: (isMobile || isTablet) && watcher.matches
         })
-        setInterval(() => { 
-            const isLandscape = window.screen.width > window.screen.height
+
+        watcher.addListener((w) => {
+            const isLandscape = w.matches
 
             if (isLandscape && this.state.stack){
                 this.setState({
@@ -24,7 +29,7 @@ class Home extends Component {
                     stack: true
                 })
             }
-        }, 200)
+        })
     }
 
     render(){
