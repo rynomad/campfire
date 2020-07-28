@@ -14,7 +14,7 @@ class Home extends Component {
             const watcher = window.matchMedia('(orientation: landscape)')
 
             this.setState({
-                stack: (isMobile || isTablet) && watcher.matches
+                stack: (isMobile || isTablet) && !watcher.matches
             })
     
             watcher.addListener((w) => {
