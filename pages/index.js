@@ -30,7 +30,7 @@ class Home extends Component {
                 >
                 <div style={{
                     flexGrow: 1,
-                    height : this.state.isMobile ? '30%' : '100%'
+                    height : this.state.stack ? '30%' : '100%'
                 }}>
                 <iframe
                     class="airtable-embed"
@@ -45,7 +45,7 @@ class Home extends Component {
                 </div>
                 <div style={{
                     flexGrow: 4,
-                    height : this.state.isMobile ? '70%' : '100%'
+                    height : this.state.stack ? '70%' : '100%'
                 }}>
                 <iframe
                     class="airtable-embed"
