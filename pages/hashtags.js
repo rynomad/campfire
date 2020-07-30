@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import BasicForm from './components/basic_form'
 
 class Home extends Component {
     render() {
@@ -6,9 +7,9 @@ class Home extends Component {
             <div
                 className="container"
             >
-                <p>
-                    Coming Soon
-                </p>
+                <BasicForm
+                    form_url={'https://airtable.com/embed/shro3pLeO0fN59oRS?backgroundColor=gray'}
+                />
             </div>
         )
     }
