@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import YouTubeDemocracyEmbed from './components/youtube_democracy_embed'
-import YouTubeEmbed from './components/youtube_embed'
+import YouTubeDemocracyEmbed from '../src/youtube_democracy_embed'
+import YouTubeEmbed from '../src/youtube_embed'
 import moment from 'moment'
 
 const live = moment("2020-08-05T17:50:00-0700")

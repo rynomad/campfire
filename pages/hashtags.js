@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BasicForm from './components/basic_form'
+import BasicForm from '../src/basic_form'
 
 class Home extends Component {
     render() {
