@@ -35,7 +35,14 @@ class GalleryForm extends Component {
         })
     }
 
+    shouldComponentUpdate(){
+        return true;
+    }
+
     render() {
+        const flexWrap = this.state.stack && (isMobile || isTablet) ? 'wrap' : 'no-wrap'
+        const maxWidth = !this.state.stack && (isMobile || isTablet) ? '60%' : undefined
+        console.log('rerender', this.state, (isMobile || isTablet), flexWrap)
         // if (!(isMobile || isTablet)) {
             return (
                 <div
@@ -47,12 +54,13 @@ class GalleryForm extends Component {
                         left: '0',
                         right: '0',
                         display: 'flex',
-                        flexWrap: this.state.stack && (isMobile || isTablet) ? 'wrap' : 'no-wrap',
-                        zIndex: -1
+                        flexWrap,
                     }}
                 >
                     <div style={{
                         flexGrow: 4,
+                        height: this.state.stack ? '50%' : '100%',
+                        maxWidth,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -71,9 +79,10 @@ class GalleryForm extends Component {
                     </div>
                     <div style={{
                         flexGrow: 1,
+                        background: 'blue',
                         height: this.state.stack ? '50%' : '100%'
                     }}>
-                        <iframe
+                        {/* <iframe
                             className="democracy-embed"
                             src={this.props.democracy}
                             frameborder="0"
@@ -82,7 +91,7 @@ class GalleryForm extends Component {
                                 width: '100%',
                                 height: '100%'
                             }}
-                        />
+                        /> */}
                     </div>
                 </div>
             )
