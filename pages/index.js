@@ -14,9 +14,10 @@ class Home extends Component {
             <div
                 className="container"
                 style={{
-                    backgroundImage: 'url("backdrop.png")',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
+                    background: 'black',
+                    // backgroundImage: 'url("backdrop.png")',
+                    // backgroundRepeat: 'no-repeat',
+                    // backgroundSize: 'cover',
                     position: 'fixed',
                     left: '0',
                     bottom: '0',
@@ -26,23 +27,10 @@ class Home extends Component {
             >
             {
                 moment().isBefore(live) ? (
-                    <>
-                        <h1 style={{
-                            color: 'white',
-                            textAlign: 'center',
-                            fontSize: 'xx-large'
-                        }}> Join Us Here </h1>
-                        <h1 style={{
-                            color: 'white',
-                            textAlign: 'center',
-                            fontSize: 'xx-large'
-                        }}> 6 PM Pacific </h1>
-                        <h1 style={{
-                            color: 'white',
-                            textAlign: 'center',
-                            fontSize: 'xx-large'
-                        }}> August 5th </h1>
-                    </>
+                    <YouTubeEmbed
+                        src={youtube}
+                        button_text={"Join us at 6PM Pacific, August 5th"}
+                    />
                 ) : embedDemocracy ? (
                     <YouTubeDemocracyEmbed
                         youtube={youtube}
