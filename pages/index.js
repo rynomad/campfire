@@ -26,17 +26,20 @@ class Home extends Component {
                     <YouTubeEmbed
                         src={youtube}
                         button_text={"Join us at 6PM Pacific, August 5th"}
+                        isMobile={this.props.isMobile}
                     />
                 ) : embedDemocracy ? (
                     <YouTubeDemocracyEmbed
                         youtube={youtube}
                         democracy={democracy}
+                        isMobile={this.props.isMobile}
                     />
                 ) : (
                     <YouTubeEmbed
                         src={youtube}
                         button_text={"Join the Discussion"}
                         button_url={democracy}
+                        isMobile={this.props.isMobile}
                     />
                 )
             }
@@ -44,5 +47,19 @@ class Home extends Component {
         )
     }
 }
+
+Home.getInitialProps = ({ req }) => {
+    let userAgent;
+    if (req) { // if you are on the server and you get a 'req' property from your context
+      userAgent = req.headers['user-agent'] // get the user-agent from the headers
+      let isMobile = Boolean(userAgent.match(
+        /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+      ))
+      
+      return { isMobile }
+    } 
+
+    return {}
+  }
 
 export default Home

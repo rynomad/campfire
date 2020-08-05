@@ -12,10 +12,11 @@ class GalleryForm extends Component {
     componentDidMount() {
 
         const watcher = window.matchMedia('(orientation: landscape)')
-
-        this.setState({
-            stack: (isMobile || isTablet) && !watcher.matches
-        })
+        setTimeout(() => {
+            this.setState({
+                stack: (isMobile || isTablet) && !watcher.matches
+            })
+        }, 0)
 
         watcher.addListener((w) => {
 
@@ -35,101 +36,69 @@ class GalleryForm extends Component {
         })
     }
 
-    shouldComponentUpdate(){
-        return true;
-    }
-
     render() {
-        const flexWrap = this.state.stack && (isMobile || isTablet) ? 'wrap' : 'no-wrap'
-        const maxWidth = !this.state.stack && (isMobile || isTablet) ? '60%' : undefined
-        console.log('rerender', this.state, (isMobile || isTablet), flexWrap)
-        // if (!(isMobile || isTablet)) {
-            return (
-                <div
-                    className="container"
-                    style={{
-                        position: 'fixed',
-                        bottom: '0',
-                        top: '0',
-                        left: '0',
-                        right: '0',
-                        display: 'flex',
-                        flexWrap,
-                    }}
-                >
-                    <div style={{
-                        flexGrow: 4,
-                        height: this.state.stack ? '50%' : '100%',
-                        maxWidth,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}>
-                        <iframe
-                            width="560"
-                            height="315"
-                            style={{
-                                maxWidth: '100%'
-                            }}
-                            src={this.props.youtube}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        />
-                    </div>
-                    <div style={{
-                        flexGrow: 1,
-                        background: 'blue',
-                        height: this.state.stack ? '50%' : '100%'
-                    }}>
-                        {/* <iframe
-                            className="democracy-embed"
-                            src={this.props.democracy}
-                            frameborder="0"
-                            onmousewheel=""
-                            style={{
-                                width: '100%',
-                                height: '100%'
-                            }}
-                        /> */}
-                    </div>
-                </div>
-            )
-        // } else {
-        //     return (
-        //         <div
-        //             className="container"
-        //             style={{
-        //                 position: 'fixed',
-        //                 bottom: '0',
-        //                 top: '0',
-        //                 left: '0',
-        //                 right: '0',
-        //                 display: 'flex',
-        //                 flexWrap: 'wrap-reverse',
-        //                 zIndex: -1
-        //             }}
-        //         >
-        //             <div style={{
-        //                 flexGrow: 1,
-        //                 width: '100%',
-        //                 height: this.state.stack ? '90%' : '100%'
-        //             }}>
-        //                 <iframe
-        //                     className="democracy-embed"
-        //                     src={this.props.democracy}
-        //                     frameborder="0"
-        //                     onmousewheel=""
-        //                     style={{
-        //                         width: '100%',
-        //                         height: '100%'
-        //                     }}
-        //                 />
-        //             </div>
-        //         </div>
-        //     )
-        // }
+        const _mobile = this.props.isMobile || isMobile || isTablet
 
+        const flexWrap = this.state.stack && _mobile ? 'wrap' : 'no-wrap'
+        const maxWidth = !this.state.stack && _mobile  ? '60%' : undefined
+
+        const flexGrow = _mobile ? 4 : 1;
+
+        return (
+            <div
+                className="container"
+                style={{
+                    position: 'fixed',
+                    bottom: '0',
+                    top: '0',
+                    left: '0',
+                    right: '0',
+                    display: 'flex',
+                    flexWrap,
+                }}
+            >
+                <div style={{
+                    flexGrow,
+                    height: this.state.stack ? '50%' : '100%',
+                    maxWidth,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <iframe
+                        width="560"
+                        height="315"
+                        style={{
+                            maxWidth: '100%'
+                        }}
+                        src={this.props.youtube}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    />
+                </div>
+                <div style={{
+                    flexGrow: 1,
+                    background: 'blue',
+                    height: this.state.stack ? '50%' : '100%'
+                }}>
+                    <div style={{
+                        width: '100%',
+                        height: '100%'
+                    }} />
+                    {/* <iframe
+                        className="democracy-embed"
+                        src={this.props.democracy}
+                        frameborder="0"
+                        onmousewheel=""
+                        style={{
+                            width: '100%',
+                            height: '100%'
+                        }}
+                    /> */}
+                </div>
+            </div>
+        )
 
     }
 
