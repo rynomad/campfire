@@ -33,8 +33,6 @@ class GalleryForm extends Component {
     }
 
     render() {
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YMz5BeDiDnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
         if (!(isMobile || isTablet)){
             return (
                 <div
