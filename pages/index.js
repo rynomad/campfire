@@ -29,11 +29,23 @@ class Home extends Component {
                 }}
             >
                 {moment().isBefore(live)? (
+                    <>
                     <h1 style={{
                         color: 'white',
                         textAlign: 'center',
-                        fontSize: 'xxx-large'
-                    }}> Coming Soon </h1>
+                        fontSize: 'xx-large'
+                    }}> Join Us Here </h1>
+                    <h1 style={{
+                        color: 'white',
+                        textAlign: 'center',
+                        fontSize: 'xx-large'
+                    }}> 6 PM Pacific </h1>
+                    <h1 style={{
+                        color: 'white',
+                        textAlign: 'center',
+                        fontSize: 'xx-large'
+                    }}> August 5th </h1>
+                    </>
                 ) : (<GalleryForm
                     gallery_url={"https://www.youtube.com/embed/BXPVe-YHDzo"}
                     form_url={democracy}
