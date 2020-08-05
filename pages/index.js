@@ -8,9 +8,6 @@ const embed = false;
 
 class Home extends Component {
     componentDidMount(){
-        if (moment().isAfter(live) && !embed){
-            window.location = democracy
-        }
     }
 
     render() {
