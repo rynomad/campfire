@@ -33,6 +33,7 @@ class GalleryForm extends Component {
     }
 
     render() {
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YMz5BeDiDnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         if (!(isMobile || isTablet)){
             return (
@@ -45,12 +46,12 @@ class GalleryForm extends Component {
                         left: '0',
                         right: '0',
                         display: 'flex',
-                        flexWrap: 'wrap-reverse',
+                        flexWrap: 'wrap',
                         zIndex: -1
                     }}
                 >
                     <div style={{
-                        flexGrow: 1,
+                        flexGrow: 4,
                         height: this.state.stack ? '50%' : '100%'
                     }}>
                         <iframe
@@ -65,7 +66,7 @@ class GalleryForm extends Component {
                         />
                     </div>
                     <div style={{
-                        flexGrow: 4,
+                        flexGrow: 1,
                         height: this.state.stack ? '50%' : '100%'
                     }}>
                         <iframe
