@@ -18,13 +18,16 @@ class GalleryForm extends Component {
         })
 
         watcher.addListener((w) => {
+
             const isLandscape = w.matches
 
             if (isLandscape && this.state.stack) {
+                console.log("unstackit")
                 this.setState({
                     stack: false,
                 })
             } else if (!isLandscape && !this.state.stack) {
+                console.log("stackit")
                 this.setState({
                     stack: true
                 })
@@ -33,7 +36,7 @@ class GalleryForm extends Component {
     }
 
     render() {
-        if (!(isMobile || isTablet)){
+        // if (!(isMobile || isTablet)) {
             return (
                 <div
                     className="container"
@@ -44,23 +47,26 @@ class GalleryForm extends Component {
                         left: '0',
                         right: '0',
                         display: 'flex',
-                        flexWrap: 'wrap',
+                        flexWrap: this.state.stack && (isMobile || isTablet) ? 'wrap' : 'no-wrap',
                         zIndex: -1
                     }}
                 >
                     <div style={{
                         flexGrow: 4,
-                        height: this.state.stack ? '50%' : '100%'
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}>
                         <iframe
-                            class="airtable-embed"
-                            src={this.props.gallery_url}
-                            frameborder="0"
-                            onmousewheel=""
+                            width="560"
+                            height="315"
                             style={{
-                                width: '100%',
-                                height: '100%'
+                                maxWidth: '100%'
                             }}
+                            src={this.props.youtube}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
                         />
                     </div>
                     <div style={{
@@ -68,8 +74,8 @@ class GalleryForm extends Component {
                         height: this.state.stack ? '50%' : '100%'
                     }}>
                         <iframe
-                            class="airtable-embed"
-                            src={this.props.form_url}
+                            className="democracy-embed"
+                            src={this.props.democracy}
                             frameborder="0"
                             onmousewheel=""
                             style={{
@@ -80,108 +86,42 @@ class GalleryForm extends Component {
                     </div>
                 </div>
             )
-        } else if (this.state.show === 'form'){
-            return (
-                <div
-                    className="container"
-                    style={{
-                        position: 'fixed',
-                        bottom: '0',
-                        top: '0',
-                        left: '0',
-                        right: '0',
-                        display: 'flex',
-                        flexWrap: 'wrap-reverse',
-                        zIndex: -1
-                    }}
-                >
-                    <div style={{
-                        flexGrow: 1,
-                        width: '100%',
-                        height: this.state.stack ? '10%' : '100%'
-                    }} onClick={() => {
-                        this.setState({
-                            show: 'gallery'
-                        })
-                    }}>
-                       <p style={{
-                           width : '100%'
-                       }}>
-                           Gallery
-                        </p>
-                    </div>
-                    <div style={{
-                        flexGrow: 4,
-                        width: '100%',
-                        height: this.state.stack ? '90%' : '100%'
-                    }}>
-                        <iframe
-                            class="airtable-embed"
-                            src={this.props.form_url}
-                            frameborder="0"
-                            onmousewheel=""
-                            style={{
-                                height: '100%',
-                                width: '100%'
-                            }}
-                        />
-                    </div>
-                </div>
-            )
-        } else if (this.state.show === 'gallery') {
-            return (
-                <div
-                    className="container"
-                    style={{
-                        position: 'fixed',
-                        bottom: '0',
-                        top: '0',
-                        left: '0',
-                        right: '0',
-                        display: 'flex',
-                        flexWrap: 'wrap-reverse',
-                        zIndex: -1
-                    }}
-                >
-                    <div style={{
-                        flexGrow: 1,
-                        height: this.state.stack ? '90%' : '100%',
-                        width: '100%'
-                    }}>
-                        <iframe
-                            class="airtable-embed"
-                            src={this.props.gallery_url}
-                            frameborder="0"
-                            onmousewheel=""
-                            style={{
-                                width: '100%',
-                                height: '100%'
-                            }}
-                        />
-                    </div>
-                    <div style={{
-                        flexGrow: 4,
-                        height: this.state.stack ? '10%' : '100%',
-                        width: '100%'
-                    }}
-                        onClick={() => {
-                            this.setState({
-                                show: 'form'
-                            })
-                        }}
-                    
-                    >
-                        <p style={{
-                            width : '100%'
-                        }}>
-                            Form
-                        </p>
-                    </div>
-                </div>
-            )
-        }
+        // } else {
+        //     return (
+        //         <div
+        //             className="container"
+        //             style={{
+        //                 position: 'fixed',
+        //                 bottom: '0',
+        //                 top: '0',
+        //                 left: '0',
+        //                 right: '0',
+        //                 display: 'flex',
+        //                 flexWrap: 'wrap-reverse',
+        //                 zIndex: -1
+        //             }}
+        //         >
+        //             <div style={{
+        //                 flexGrow: 1,
+        //                 width: '100%',
+        //                 height: this.state.stack ? '90%' : '100%'
+        //             }}>
+        //                 <iframe
+        //                     className="democracy-embed"
+        //                     src={this.props.democracy}
+        //                     frameborder="0"
+        //                     onmousewheel=""
+        //                     style={{
+        //                         width: '100%',
+        //                         height: '100%'
+        //                     }}
+        //                 />
+        //             </div>
+        //         </div>
+        //     )
+        // }
 
-   
+
     }
 
 }

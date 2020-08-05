@@ -18,8 +18,7 @@ class GalleryForm extends Component {
                     width="560" 
                     height="315" 
                     style={{
-                        maxWidth: '100%',
-                        
+                        maxWidth: '100%'
                     }}
                     src={this.props.src} 
                     frameBorder="0" 
