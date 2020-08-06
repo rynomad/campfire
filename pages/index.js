@@ -3,10 +3,10 @@ import YouTubeDemocracyEmbed from '../src/youtube_democracy_embed'
 import YouTubeEmbed from '../src/youtube_embed'
 import moment from 'moment'
 
-const live = moment()//moment("2020-08-05T17:50:00-0700")
+const live = moment("2020-08-05T17:50:00-0700")
 const youtube = "https://www.youtube.com/embed/BXPVe-YHDzo"
-const democracy = 'https://live.remesh.chat/p/99ea20b8-2a8e-451d-afc3-5371821dbc9e'
-const embedDemocracy = true;
+const democracy = 'https://live.remesh.chat/p/027fd798-add5-4d8a-a015-e10bae5e5310'
+const embedDemocracy = false;
 
 class Home extends Component {
     render() {
