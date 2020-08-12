@@ -3,12 +3,23 @@ import YouTubeDemocracyEmbed from '../src/youtube_democracy_embed'
 import YouTubeEmbed from '../src/youtube_embed'
 import moment from 'moment'
 
-const live = moment("2020-08-05T17:50:00-0700")
-const youtube = "https://www.youtube.com/embed/BXPVe-YHDzo"
-const democracy = 'https://live.remesh.chat/p/027fd798-add5-4d8a-a015-e10bae5e5310'
+const live = moment("2020-08-12T16:00:00-0700")
+const preLive = live.subtract(5, 'minutes')
+const youtube = "https://www.youtube.com/embed/YeUOvxX-zLI"
+const democracy = youtube //'https://live.remesh.chat/p/027fd798-add5-4d8a-a015-e10bae5e5310'
 const embedDemocracy = false;
 
 class Home extends Component {
+    componentDidMount(){
+        if (moment().isSameOrAfter(preLive)){
+            try {
+                window.href = democracy
+            } catch (e) {
+                console.warn('falling back to youtube embed + button')
+            }
+        }
+    }
+
     render() {
         return (
             <div
@@ -25,7 +36,7 @@ class Home extends Component {
                 moment().isBefore(live) ? (
                     <YouTubeEmbed
                         src={youtube}
-                        button_text={"Join us at 6PM Pacific, August 5th"}
+                        button_text={`Join us on ${live.format("dddd, MMMM Do YYYY, h:mm:ss a")}`}
                         isMobile={this.props.isMobile}
                     />
                 ) : embedDemocracy ? (
