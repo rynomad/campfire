@@ -4,7 +4,7 @@ import moment from 'moment'
 const live = moment("2020-08-19T15:00:00-0700")
 const preLive = live.clone().subtract(10, 'minutes')
 const youtube = "https://www.youtube.com/watch?v=Bh0kauv1lGo&feature=youtu.be"
-const democracy = 'https://live.remesh.chat/p/3876f6c0-b81f-4b3b-95cb-60bba1e6f124'
+const democracy = 'https://live.remesh.chat/p/00981d28-4610-43c3-8105-85d81dae8010'
 const embedDemocracy = false;
 
 class Home extends Component {
