@@ -5,7 +5,7 @@ import YouTubeEmbed from '../src/youtube_embed'
 
 const live = moment()//moment("2020-08-23T18:00:00-0700")
 const preLive = live.clone().subtract(10, 'minutes')
-const smoreLive = preLive.clone().add(1, 'hour')
+const smoreLive = moment() //preLive.clone().add(1, 'hour')
 const youtube = "https://www.youtube.com/embed/rak8v5hfdxA"
 const democracy = 'https://live.remesh.chat/p/d4959447-1821-4333-8484-6b76553619d5'
 const smores = 'https://zoom.us/j/98695814291?pwd=d3Vpa0lDUU1kUDIwN3c1akJUL2VHQT09'
