@@ -5,7 +5,7 @@ import YouTubeEmbed from '../src/youtube_embed'
 
 const live = moment("2020-08-23T19:00:00-0700")
 const preLive = live.clone().subtract(10, 'minutes')
-const youtube = "https://www.youtube.com/watch?v=Bh0kauv1lGo&feature=youtu.be"
+const youtube = "https://www.youtube.com/embed/rak8v5hfdxA"
 const democracy = 'https://live.remesh.chat/p/b727e7a2-f9a2-4f4d-9aef-297d89282152'
 const embedDemocracy = false;
 class Home extends Component {
@@ -34,7 +34,7 @@ class Home extends Component {
             {
                 moment().isBefore(preLive) ? (
                     <YouTubeEmbed
-                        // src={youtube}
+                        src={youtube}
                         button_text={`Join us on ${live.format("dddd, MMMM Do YYYY, h:mm:ss a")}`}
                         isMobile={this.props.isMobile}
                     />
