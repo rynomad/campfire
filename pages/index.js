@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
 import moment from 'moment'
+import YouTubeEmbed from '../src/youtube_embed'
 
-const live = moment("2020-08-19T15:00:00-0700")
+
+const live = moment("2020-08-23T19:00:00-0700")
 const preLive = live.clone().subtract(10, 'minutes')
 const youtube = "https://www.youtube.com/watch?v=Bh0kauv1lGo&feature=youtu.be"
-const democracy = 'https://live.remesh.chat/p/00981d28-4610-43c3-8105-85d81dae8010'
+const democracy = 'https://live.remesh.chat/p/b727e7a2-f9a2-4f4d-9aef-297d89282152'
 const embedDemocracy = false;
-
 class Home extends Component {
     componentDidMount(){
-        if (window.location.host === 'democracy.articlesofunity.org'){
-            window.location.href = democracy
-        } else {
-            window.location.href = youtube
-        }
         // if (moment().isSameOrAfter(live)){
         //     try {
         //         window.location.href = democracy
@@ -24,9 +20,38 @@ class Home extends Component {
     }
 
     render() {
-        return null
+        return (
+            <div
+                className="container"
+                style={{
+                    position: 'fixed',
+                    left: '0',
+                    bottom: '0',
+                    right: '0',
+                    top: '0'
+                }}
+            >
+            {
+                moment().isBefore(preLive) ? (
+                    <YouTubeEmbed
+                        // src={youtube}
+                        button_text={`Join us on ${live.format("dddd, MMMM Do YYYY, h:mm:ss a")}`}
+                        isMobile={this.props.isMobile}
+                    />
+                ) : (
+                    <YouTubeEmbed
+                        src={youtube}
+                        button_text={"Join the Discussion"}
+                        button_url={democracy}
+                        isMobile={this.props.isMobile}
+                    />
+                )
+            }
+            </div>
+        )
     }
 }
+
 
 Home.getInitialProps = ({ req }) => {
     let userAgent;
