@@ -6,7 +6,7 @@ import YouTubeEmbed from '../src/youtube_embed'
 const live = moment("2020-08-23T18:00:00-0700")
 const preLive = live.clone().subtract(10, 'minutes')
 const youtube = "https://www.youtube.com/embed/rak8v5hfdxA"
-const democracy = 'https://live.remesh.chat/p/b727e7a2-f9a2-4f4d-9aef-297d89282152'
+const democracy = 'https://live.remesh.chat/p/d4959447-1821-4333-8484-6b76553619d5'
 const embedDemocracy = false;
 class Home extends Component {
     componentDidMount(){
