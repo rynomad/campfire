@@ -25,11 +25,11 @@ class GalleryForm extends Component {
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen
                 />
-                <Button variant="contained" href={this.props.button_url} target="_blank" rel="noreferrer" style={{
+                {this.props.button_text && <Button variant="contained" href={this.props.button_url} target="_blank" rel="noreferrer" style={{
                     cursor: this.props.button_url ? 'pointer' : 'default'
                 }}>
                     {this.props.button_text}
-                </Button>
+                </Button>}
             </div>
         )
     }

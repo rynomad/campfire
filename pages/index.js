@@ -33,7 +33,11 @@ class Home extends Component {
                     top: '0'
                 }}
             >
-                {
+                        <YouTubeEmbed
+                            src={youtube}
+                            isMobile={this.props.isMobile}
+                        />
+                {/* {
                     moment().isBefore(preLive) ? (
                         <YouTubeEmbed
                             src={youtube}
@@ -55,7 +59,7 @@ class Home extends Component {
                                     isMobile={this.props.isMobile}
                                 />
                             )
-                }
+                } */}
             </div>
         )
     }
