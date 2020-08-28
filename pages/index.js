@@ -3,7 +3,7 @@ import moment from 'moment'
 import YouTubeEmbed from '../src/youtube_embed'
 
 
-const live = moment("2020-08-28T09:00:00-0700")
+const live = moment("2020-08-29T09:00:00-0700")
 const preLive = live.clone().add(45, 'minutes')
 const smoreLive = preLive.clone().add(30, 'minutes')
 const youtube = "https://www.youtube.com/embed/HHl6NzH7p7g"
