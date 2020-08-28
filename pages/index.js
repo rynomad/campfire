@@ -6,7 +6,7 @@ import YouTubeEmbed from '../src/youtube_embed'
 const live = moment("2020-08-26T16:00:00-0700")
 const preLive = live.clone().add(45, 'minutes')
 const smoreLive = preLive.clone().add(30, 'minutes')
-const youtube = "https://www.youtube.com/embed/TCSMILQPBs4"
+const youtube = "https://www.youtube.com/embed/HHl6NzH7p7g"
 const democracy = 'https://live.remesh.chat/p/e0840494-b4bf-48a2-9b7c-00a61ca9575c'
 const smores = 'https://zoom.us/j/98695814291?pwd=d3Vpa0lDUU1kUDIwN3c1akJUL2VHQT09'
 const embedDemocracy = false;
@@ -34,24 +34,15 @@ class Home extends Component {
                 }}
             >
                 {
-                    moment().isBefore(preLive) ? (
+                    moment().isBefore(live) ? (
                         <YouTubeEmbed
                             src={youtube}
                             button_text={`Join us on ${live.format("dddd, MMMM Do YYYY, h:mm:ss a")}`}
                             isMobile={this.props.isMobile}
                         />
-                    ) : moment().isAfter(smoreLive) && this.props.host === 'campfiresmores.articlesofunity.org' ? (
-                        <YouTubeEmbed
-                            src={youtube}
-                            button_text={"Join us for S'More!"}
-                            button_url={smores}
-                            isMobile={this.props.isMobile}
-                        />
-                    ) : (
+                    ) :  (
                                 <YouTubeEmbed
                                     src={youtube}
-                                    button_text={"Join the Discussion"}
-                                    button_url={democracy}
                                     isMobile={this.props.isMobile}
                                 />
                             )
