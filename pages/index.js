@@ -3,11 +3,11 @@ import moment from 'moment'
 import YouTubeEmbed from '../src/youtube_embed'
 
 
-const live = moment("2020-08-30T18:00:00-0700")
-const preLive = live.clone().add(45, 'minutes')
+const live = moment("2020-08-31T18:00:00-0700")
+const preLive = live.clone().subtract(10, 'minutes')
 const smoreLive = preLive.clone().add(30, 'minutes')
-const youtube = "https://www.youtube.com/embed/lkQ9YZWxMf0"
-const democracy = 'https://live.remesh.chat/p/e0840494-b4bf-48a2-9b7c-00a61ca9575c'
+const youtube = "https://www.youtube.com/embed/GOwy20VioIg"
+const democracy = "https://live.remesh.chat/p/7459a1fd-423e-43aa-8437-0068511d4ec8/"
 const smores = 'https://zoom.us/j/98695814291?pwd=d3Vpa0lDUU1kUDIwN3c1akJUL2VHQT09'
 
 const embedDemocracy = false;
@@ -35,7 +35,7 @@ class Home extends Component {
                 }}
             >
                 {
-                    moment().isBefore(live) ? (
+                    moment().isBefore(preLive) ? (
                         <YouTubeEmbed
                             src={youtube}
                             button_text={`Join us on ${live.format("dddd, MMMM Do YYYY, h:mm:ss a")}`}
@@ -44,6 +44,8 @@ class Home extends Component {
                     ) :  (
                                 <YouTubeEmbed
                                     src={youtube}
+                                    button_text={'Join the Discussion'}
+                                    button_url={democracy}
                                     isMobile={this.props.isMobile}
                                 />
                             )
