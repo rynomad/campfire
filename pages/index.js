@@ -7,7 +7,7 @@ const live = moment("2020-09-02T18:00:00-0700")
 const preLive = live.clone().subtract(10, 'minutes')
 const smoreLive = preLive.clone().add(30, 'minutes')
 const youtube = "https://www.youtube.com/embed/I3c7tHBGW7E"
-const democracy = "https://live.remesh.chat/p/7459a1fd-423e-43aa-8437-0068511d4ec8/"
+const democracy = "https://live.remesh.chat/p/0020336d-4a15-4d71-a124-cd9ee36bf23d/"
 const smores = 'https://zoom.us/j/98695814291?pwd=d3Vpa0lDUU1kUDIwN3c1akJUL2VHQT09'
 
 const embedDemocracy = false;
